@@ -102,9 +102,6 @@ a {
 }
 
 .btn {
-    background-color: transparent;
-    border: none;
-    outline: none;
     display: grid;
     place-items: center;
     cursor: pointer;
@@ -126,6 +123,24 @@ a {
     background-color: var(--main-color);
     color: #fff;
 }
+
+.btnadd{
+    margin-top: 1rem;
+    background:var(--orange);
+    color:#ffc542;
+    padding:5px;
+    border:.2rem solid var(--orange);
+    cursor: pointer;
+    font-size: 1.7rem;
+  }
+  
+  .btnadd:hover{
+    background:rgba(255, 165, 0,.2);
+    color:var(--orange);
+  }
+
+
+
 
 .sidebar-menu {
     padding: 10px 0;
