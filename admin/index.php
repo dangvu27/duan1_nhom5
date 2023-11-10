@@ -7,6 +7,42 @@
     if (isset($_GET['act'])) {
         $act = $_GET['act'];
         switch ($act) {
+            /// QUẢN LÝ LOẠI PHÒNG
+            case 'addlp':
+                if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
+                    $ten_LP = $_POST['ten_LP'];
+                    insert_loai($ten_LP);
+                    $thongbao = "Thêm mới thành công!";
+                }
+                include "loaiphong/add.php";
+                break;
+            case 'listdm':
+                $listdm = loadall_loai();
+                include "loaiphong/list.php";
+                break;
+            case 'sualp':
+                if (isset($_GET['id'])&&($_GET['id']>0)) {
+                    $dm = loadone_loai($_GET['id']);
+                }
+                include "loaiphong/update.php";
+                break;
+            case 'updatelp':
+                if (isset($_POST['capnhat'])&&($_POST['capnhat'])) {
+                    $id_loaiphong = $_POST['id_loai'];
+                    $ten_LP = $_POST['ten_LP'];
+                    update_loai($id_loaiphong, $ten_LP);
+                }
+                $listdm = loadall_loai();
+                include "loaiphong/list.php";
+                break;
+            case 'deletelp':
+                if (isset($_GET['id'])&&($_GET['id']>0)) {
+                    delete_loai($_GET['id']);
+                }
+                $listdm = loadall_loai();
+                include "loaiphong/list.php";
+                break;
+            /// QUẢN LÝ PHÒNG 
             case 'listsp':
                 if (isset($_POST['listtk'])&&($_POST['listtk'])) {
                     $kyw = $_POST['kyw'];
@@ -34,7 +70,7 @@
                 $listdm = loadall_loai();
                 include "room/add.php";
                 break;
-            case 'update':
+            case 'suasp':
                 if (isset($_GET['id'])&&($_GET['id']>0)) {
                     $sp = loadone_room($_GET['id']);
                 }
@@ -59,7 +95,7 @@
                 $listsp = loadall_room($kyw,$id_loaiphong);
                 include "room/list.php";
                 break;
-            case 'delete':
+            case 'deletesp':
                 if (isset($_GET['id'])&&($_GET['id']>0)) {
                     delete_room($_GET['id']);
                 }

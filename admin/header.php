@@ -53,7 +53,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="index.php?act=listdm">
                     <i><iconify-icon icon="ic:round-hotel"></iconify-icon></i>
                     <span>Quản lý Loại Phòng</span>
                 </a>

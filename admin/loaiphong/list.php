@@ -4,7 +4,7 @@
                 <i class='bx bx-menu-alt-right'></i>
             </div>
             <div class="main-title">
-                Quản lý Phòng
+            Quản lý Loại Phòng
             </div>
         </div>
         <div class="main-content">
@@ -16,48 +16,33 @@
                     
                     <div class="box">
                         <div class="box-header">
-                           Danh sách phòng
+                           Danh sách loại phòng
                            
                         </div>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a href="index.php?act=addsp"><input type="submit" value="Thêm mới" class="btn btn-primary"></a>    
+                        <a href="index.php?act=addlp"><input type="submit" value="Thêm mới" class="btn btn-primary"></a>    
                         </div>
                         <div class="box-body">
                             <table>
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Tên phòng</th>
-                                        <th>Loại phòng</th>
-                                        <th>Ảnh</th>
-                                        <th>Mô tả</th>
-                                        <th>Giá</th>
+                                        <th>Tên loại phòng</th>
                                         <th>Action</th>
-                                        <th>Trạng thái</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                        foreach ($listsp as $key) {
+                                        foreach ($listdm as $key) {
                                             extract($key);
-                                            $ten_LP = loadten_loai($id_loaiphong);
-                                            $url = "../images/".$img;
                                             echo'<tr>
-                                                <td>'.$id_phong.'</td>
+                                                <td>'.$id_loaiphong.'</td>
                                                 <td>
                                                     <div class="order-owner">
-                                                        <span>'.$ten_phong.'</span>
+                                                        <span>'.$ten_LP.'</span>
                                                     </div>
                                                 </td>
-                                                <td>'.$ten_LP.'</td>
-                                                <td>
-                                                    <img src="'.$url.'" style="width: 100px;">
-                                                </td>
-                                                <td>
-                                                    <textarea rows="4" cols="50">'.$mota.'</textarea>
-                                                </td>
-                                                <td>'.$gia.' đ </td>
-                                                <td><a href="index.php?act=suasp&id='.$id_phong.'">Update</a> | <a href="index.php?act=deletesp&id='.$id_phong.'">Delete</a></td>
+                                                <td><a href="index.php?act=sualp&id='.$id_loaiphong.'">Update</a> | <a href="index.php?act=deletelp&id='.$id_loaiphong.'">Delete</a></td>
                                             </tr>';
                                         }
                                     ?>
