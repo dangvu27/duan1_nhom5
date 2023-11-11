@@ -74,7 +74,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="index.php?act=listtk">
                     <i><iconify-icon icon="mdi:account-cog"></iconify-icon></i>
                     <span>Quản lý Tài Khoản</span>
                 </a>
