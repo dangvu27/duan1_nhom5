@@ -9,13 +9,20 @@
         } else $sql = "update phong set ten_phong = '$ten_phong', gia = '$gia', mota = '$mota', id_loaiphong = '$id_loaiphong' where id_phong='$id_phong'";
         pdo_execute($sql);
     }
-    function loadall_room($kyw,$id_loaiphong){
+    function loadall_room($kyw,$id_loaiphong, $checkin, $checkout){
         $sql ="select * from phong where 1";
         if ($kyw != "") {
-            $sql.= " and ten_phong like %'$kyw'%";
+            $sql.= " and ten_phong like '%".$kyw."%'";
         }
         if ($id_loaiphong >0) {
-            $sql.= " and id_loaiphong like %'$id_loaiphong'%";
+            $sql.= " and id_loaiphong='$id_loaiphong'";
+        }
+        if (($checkin != "") && ($checkout != "") ) {
+            $sql.=" and id_phong NOT IN (
+                SELECT id_phong FROM dat_phong
+                WHERE ngay_den BETWEEN '$checkin' AND '$checkout'
+                OR ngay_ve BETWEEN '$checkin' AND '$checkout'
+            )";
         }
         $list = pdo_query($sql);
         return $list;

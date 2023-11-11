@@ -31,7 +31,6 @@
                                 <div class="input-group mb-3">
                                     <label class="input-group-text" for="inputGroupSelect01">Loại Phòng</label>
                                     <select class="form-select" name="loai_phong">
-                                        <option>Choose...</option>
                                         <?php
                                             foreach ($listdm as $key) {
                                                 extract($key);

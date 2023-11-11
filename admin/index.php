@@ -44,15 +44,23 @@
                 break;
             /// QUẢN LÝ PHÒNG 
             case 'listsp':
-                if (isset($_POST['listtk'])&&($_POST['listtk'])) {
+                if (isset($_POST['timkiemsp'])&&($_POST['timkiemsp'])) {
                     $kyw = $_POST['kyw'];
                     $id_loaiphong = $_POST['id_loaiphong'];
+                    $checkin = $_POST['checkin'];
+                    $checkout = $_POST['checkout'];
                 } else {
                     $kyw = "";
                     $id_loaiphong = 0;
+                    $checkin = "";
+                    $checkout = "";
                 }
-                $listsp = loadall_room($kyw,$id_loaiphong);
+                $listdm = loadall_loai();
+                $listsp = loadall_room($kyw, $id_loaiphong, $checkin, $checkout);
                 include "room/list.php";
+                break;
+            case 'value':
+                # code...
                 break;
             case 'addsp':
                 if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
@@ -92,7 +100,10 @@
                 }
                 $kyw = "";
                 $id_loaiphong = 0;
-                $listsp = loadall_room($kyw,$id_loaiphong);
+                $checkin = "";
+                $checkout = "";
+                $listdm = loadall_loai();
+                $listsp = loadall_room($kyw,$id_loaiphong, $checkin, $checkout);
                 include "room/list.php";
                 break;
             case 'deletesp':
@@ -101,7 +112,10 @@
                 }
                 $kyw = "";
                 $id_loaiphong = 0;
-                $listsp = loadall_room($kyw,$id_loaiphong);
+                $checkin = "";
+                $checkout = "";
+                $listdm = loadall_loai();
+                $listsp = loadall_room($kyw,$id_loaiphong, $checkin, $checkout);
                 include "room/list.php";
                 break;
             default:
