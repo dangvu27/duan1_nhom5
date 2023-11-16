@@ -27,6 +27,43 @@
         $list = pdo_query($sql);
         return $list;
     }
+    function load3_roomhome(){
+        $sql ="SELECT phong.*, SUBSTRING(mota, 1, 70) AS mota_ngan, COUNT(dat_phong.id_phong) AS so_lan_dat
+        FROM phong
+        LEFT JOIN dat_phong ON phong.id_phong = dat_phong.id_phong
+        GROUP BY phong.id_phong
+        ORDER BY COUNT(dat_phong.id_phong) DESC
+        LIMIT 3";
+        $list = pdo_query($sql);
+        return $list;
+    }
+    function load6_roomtk($id_loaiphong, $checkin, $checkout){
+        $sql ="SELECT phong.*, SUBSTRING(mota, 1, 70) AS mota_ngan, COUNT(dat_phong.id_phong) AS so_lan_dat
+        FROM phong
+        LEFT JOIN dat_phong ON phong.id_phong = dat_phong.id_phong where 1";
+
+        if ($id_loaiphong >0) {
+            $sql.= " and id_loaiphong='$id_loaiphong'";
+        }
+        if (($checkin != "") && ($checkout != "") ) {
+            $timestamp = strtotime($checkin);
+            $ngayden = date("Y/m/d", $timestamp);
+            $timestamp = strtotime($checkout);
+            $ngayve = date("Y/m/d", $timestamp);
+            $sql.=" and phong.id_phong NOT IN (
+                SELECT id_phong FROM dat_phong
+                WHERE (ngay_den BETWEEN '$ngayden' AND '$ngayve')
+                OR (ngay_ve BETWEEN '$ngayden' AND '$ngayve')
+            )";
+        }
+
+        $sql .= " GROUP BY phong.id_phong
+        ORDER BY COUNT(dat_phong.id_phong) DESC
+        LIMIT 6";
+        $list = pdo_query($sql);
+        return $list;
+    }
+
     function loadone_room($id_phong){
         $sql ="select * from phong where id_phong='$id_phong'";
         $list = pdo_query_one($sql);

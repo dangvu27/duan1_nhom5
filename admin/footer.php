@@ -1,5 +1,6 @@
 <div class="overlay"></div>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="./js/app.js"></script>
 <script>
     $(document).ready(function () {
         $('#checkin').datepicker({
