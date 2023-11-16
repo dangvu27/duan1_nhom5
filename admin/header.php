@@ -80,7 +80,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="index.php?act=listbl">
                     <i><iconify-icon icon="fluent:comment-16-filled"></iconify-icon></i>
                     <span>Quản lý Bình Luận</span>
                 </a>

@@ -81,4 +81,12 @@
             return $ten_LP;
         } else return "";
     }
+    function loadten_phong($id_phong){
+        if ($id_phong>0) {
+            $sql = "select * from phong where id_phong='$id_phong'";
+            $dm = pdo_query_one($sql);
+            extract($dm);
+            return $ten_phong;
+        } else return "";
+    }
 ?>

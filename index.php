@@ -14,8 +14,8 @@
             case 'dv':
                 
                 break;
-            case 'lh':
-                
+            case 'chitiet':
+                include "view/chitietphong.php";
                 break;
             case 'tksp':
                 if (isset($_POST['Timkiem'])&&($_POST['Timkiem'])) {
@@ -27,12 +27,9 @@
                     $checkin = "";
                     $checkout = "";
                 }
-                // var_dump($checkin);
-                // var_dump($checkout);
-                // var_dump($loaiphong);
                 $listsp = load6_roomtk($loaiphong, $checkin, $checkout);
                 include "view/room.php";
-                break;
+                break;            
             default:
                 include "view/home.php";
                 break;

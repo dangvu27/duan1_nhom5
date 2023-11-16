@@ -22,4 +22,9 @@
         $sql = "UPDATE taikhoan SET userName = '".$userName."', pass = '".$pass."', email = '".$email."', SDT = '".$SDT."' where id_TK=".$id_TK;
         pdo_execute($sql);
     }
+    function checkuser($email,$pass){
+        $sql = "SELECT * FROM taikhoan WHERE email = '".$email."' AND pass = '".$pass."' ";
+        $kq = pdo_query_one($sql);
+        return $kq;
+    }
 ?>

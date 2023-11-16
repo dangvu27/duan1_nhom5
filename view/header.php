@@ -25,6 +25,9 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
+    <!-- icon  -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> 
+
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -39,7 +42,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.en-GB.min.js"></script>
 
+    <script type="application/x-javascript">
+      addEventListener("load", function() {
+          setTimeout(hideURLbar, 0);
+      }, false);
 
+      function hideURLbar() {
+          window.scrollTo(0, 1);
+      }
+    </script>
 
 </head>
 
@@ -79,7 +90,7 @@
                                 </div> -->
                                 <a href="index.php?act=lh" class="nav-item nav-link">Liên hệ</a>
                             </div>
-                            <!-- <a href="https://htmlcodex.com/hotel-html-template-pro" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a> -->
+                            <a href="admin/login.php" class="btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">Đăng nhập <i><iconify-icon icon="material-symbols-light:account-box"></iconify-icon></i></a>
                         </div>
                     </nav>
                 </div>
