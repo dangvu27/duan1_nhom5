@@ -14,8 +14,13 @@
             case 'dv':
                 
                 break;
-            case 'lh':
-                
+            case 'chitiet':
+                if((isset($_GET['id'])) && ($_GET['id'] > 0)){
+                    $id = $_GET['id'];
+                    $listphong = loadone_room($id);
+                    include "../duan1_nhom5-develop/view/chitietphong.php";
+                }
+
                 break;
             case 'tksp':
                 if (isset($_POST['Timkiem'])&&($_POST['Timkiem'])) {

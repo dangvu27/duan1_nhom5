@@ -35,8 +35,8 @@
                                         </div>
                                         <p class="text-body mb-3">'.$mota_ngan.'...</p>
                                         <div class="d-flex justify-content-between">
-                                            <a class="btn btn-sm btn-primary rounded py-2 px-4" href="index.php?act=chitiet">Xem Chi Tiết</a>
-                                            <a class="btn btn-sm btn-dark rounded py-2 px-4" href="index.php?act=booking">Đặt Ngay</a>
+                                        <a class="btn btn-sm btn-primary rounded py-2 px-4" href="index.php?act=chitiet&id='.$id_phong.'">Xem Chi Tiết</a>
+                                        <a class="btn btn-sm btn-dark rounded py-2 px-4" href="index.php?act&id='.$id_phong.'">Đặt Ngay</a>
                                         </div>
                                     </div>
                                 </div>
