@@ -85,6 +85,12 @@
                     <span>Quản lý Bình Luận</span>
                 </a>
             </li>
+            <li>
+                <a href="index.php?act=listdp">
+                    <i><iconify-icon icon="material-symbols:shopping-cart-sharp"></iconify-icon></i>
+                    <span>Quản lý Đặt Phòng</span>
+                </a>
+            </li>
             
         </ul>
         
