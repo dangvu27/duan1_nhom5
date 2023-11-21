@@ -81,4 +81,23 @@
             return $ten_LP;
         } else return "";
     }
+    function trangthai_room($id_phong){
+        $sql = "select
+        CASE
+           WHEN dat_phong.ngay_den IS NULL AND dat_phong.ngay_ve IS NULL THEN 'Trống'
+           WHEN CURDATE() > dat_phong.ngay_ve THEN 'Trống'
+           WHEN CURDATE() BETWEEN dat_phong.ngay_den AND dat_phong.ngay_ve THEN 'Đã Check-in'
+           ELSE 'Chờ'
+        END AS trang_thai
+        FROM phong
+        LEFT JOIN dat_phong ON phong.id_phong = dat_phong.id_phong
+        WHERE phong.id_phong = '$id_phong'";
+        $list = pdo_query($sql);
+        return $list;
+    }
+    function soluong_room(){
+        $sql = "SELECT COUNT(id_phong) FROM phong"; 
+        $dem = pdo_query_value($sql);
+        return $dem;
+    }
 ?>

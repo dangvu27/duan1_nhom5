@@ -19,7 +19,7 @@
                            Thêm Đơn Đặt Phòng
                         </div>
                         <div class="box-body">
-                            <form action="index.php?act=addsp" method="post" enctype="multipart/form-data">
+                            <form action="index.php?act=adddp" method="post" enctype="multipart/form-data">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Tên Khách Hàng</span>
                                     <input type="text" class="form-control" placeholder="Nhập" name="ten_KH">

@@ -76,6 +76,19 @@
                                     <?php
                                     foreach ($listsp as $key) {
                                         extract($key);
+                                        $listtrangthai = trangthai_room($id_phong);
+                                        foreach ($listtrangthai as $a) {
+                                            if ($a['trang_thai'] === "Đã Check-in") {
+                                                $trangthai = '<span class="order-status order-full"> Đã Check-in </span>';
+                                                break;
+                                            } elseif ($a['trang_thai'] === "Chờ") {
+                                                $y = 1;
+                                                $trangthai = '<span class="order-status order-cho"> Chờ </span>';
+                                                break;
+                                            } else {
+                                                $trangthai = '<span class="order-status order-trong"> Trống </span>';
+                                            }
+                                        }
                                         $ten_LP = loadten_loai($id_loaiphong);
                                         $url = "../images/" . $img;
                                         echo '<tr>
@@ -92,12 +105,14 @@
                                                 <td>
                                                     <textarea rows="4" cols="50">' . $mota . '</textarea>
                                                 </td>
-                                                <td>' . $gia . ' đ </td>
+                                                <td>' . $gia . '</td>
                                                 <td><a href="index.php?act=suasp&id=' . $id_phong . '">Update</a> | <a href="index.php?act=deletesp&id=' . $id_phong . '">Delete</a></td>
+                                                <td>' . $trangthai . '</td>
+                                                
                                             </tr>';
                                     }
                                     ?>
-
+                                            <!-- <td><span class="order-status order-ready">' . $trangthai . '</span></td> -->
                                 </tbody>
                             </table>
                         </div>

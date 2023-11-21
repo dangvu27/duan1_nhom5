@@ -35,7 +35,7 @@
 
     <div class="sidebar">
         <div class="sidebar-logo">
-            <a href="index.html">
+            <a href="../index.php">
                 <img src="#" alt="Logo">
             </a>
             <div class="sidebar-close" id="sidebar-close">
@@ -44,13 +44,12 @@
         </div>
         <div class="sidebar-user">
             <div class="sidebar-user-info">
-                <img src="#chưa có" alt="User picture" class="profile-image">
                 <div class="sidebar-user-name">
-                    Vũ nè
+                    <?php echo $_SESSION['user']['userName'];?>
                 </div>
             </div>
             <button class="btn btn-outline">
-                <a href="index.html"><i class='bx bx-log-out bx-flip-horizontal'></i></a>
+                <a href="../index.php?act=thoat"><i class='bx bx-log-out bx-flip-horizontal'></i></a>
             </button>
         </div>
 

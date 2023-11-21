@@ -430,14 +430,18 @@ table td {
     font-weight: 500;
 }
 
-.order-ready {
+.order-cho {
     color: #2a59d1;
     background-color: rgba(62, 121, 247, 0.1);
 }
 
-.order-shipped {
+.order-trong {
     color: #00ab6f;
     background-color: rgba(4, 209, 130, 0.1);
+}
+.order-full {
+    color: #ab0000;
+    background-color: rgba(209, 4, 35, 0.1);
 }
 
 .payment-status {

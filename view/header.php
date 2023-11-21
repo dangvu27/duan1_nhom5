@@ -90,7 +90,17 @@
                                 </div> -->
                                 <a href="index.php?act=lh" class="nav-item nav-link">Liên hệ</a>
                             </div>
-                            <a href="admin/login.php" class="btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">Đăng nhập <i><iconify-icon icon="material-symbols-light:account-box"></iconify-icon></i></a>
+                            <?php
+                                if (isset($_SESSION['user'])) {
+                                    if ($_SESSION['user']['role'] == 1){
+                                        echo'<a href="admin/index.php" class="btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">'.$_SESSION['user']['userName'].'</a>';
+                                    } else {
+                                        echo'<a href="#" class="btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">'.$_SESSION['user']['userName'].'</a>';
+                                    }
+                                } else {
+                                    echo'<a href="index.php?act=dangky-dangnhap" class="btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">Đăng Nhập</a>';
+                                }
+                            ?>
                         </div>
                     </nav>
                 </div>
@@ -166,6 +176,8 @@
                             </div>
                         </div>';
                         break;    
+                    
+                        
                     default:
                         echo'<div class="container-fluid p-0 mb-5">
                         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
