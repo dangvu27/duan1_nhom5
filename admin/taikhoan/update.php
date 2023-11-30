@@ -41,6 +41,19 @@
                                     <span class="input-group-text" id="basic-addon1">SĐT</span>
                                     <input type="text" class="form-control" placeholder="Nhập" name="SDT" value="<?= $SDT ?>">
                                 </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Vai Trò</span>
+                                    <select class="form-select" name="vaitro">
+                                        <?php 
+                                            foreach ($listrole as $key) {
+                                                extract($key);
+                                                if ($role == $id_role) {
+                                                    echo'<option value="'.$id_role.'" selected>'.$ten_role.'</option>';
+                                                } else echo'<option value="'.$id_role.'">'.$ten_role.'</option>';
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <input type="hidden" name="id_TK" value="<?= $id_TK ?>">
                                     <input type="submit" value="Cập Nhật" class="btn btn-primary" name="capnhattk">

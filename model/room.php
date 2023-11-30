@@ -10,7 +10,7 @@
         pdo_execute($sql);
     }
     function loadall_room($kyw,$id_loaiphong, $checkin, $checkout){
-        $sql ="select * from phong where 1";
+        $sql ="select * from phong where active = '1'";
         if ($kyw != "") {
             $sql.= " and ten_phong like '%".$kyw."%'";
         }
@@ -27,10 +27,22 @@
         $list = pdo_query($sql);
         return $list;
     }
+    function loadall_roomxoa($kyw,$id_loaiphong){
+        $sql ="select * from phong where active = '2'";
+        if ($kyw != "") {
+            $sql.= " and ten_phong like '%".$kyw."%'";
+        }
+        if ($id_loaiphong >0) {
+            $sql.= " and id_loaiphong='$id_loaiphong'";
+        }
+        $list = pdo_query($sql);
+        return $list;
+    }
     function load3_roomhome(){
         $sql ="SELECT phong.*, SUBSTRING(mota, 1, 70) AS mota_ngan, COUNT(dat_phong.id_phong) AS so_lan_dat
         FROM phong
         LEFT JOIN dat_phong ON phong.id_phong = dat_phong.id_phong
+        WHERE active = '1'
         GROUP BY phong.id_phong
         ORDER BY COUNT(dat_phong.id_phong) DESC
         LIMIT 3";
@@ -40,7 +52,7 @@
     function load6_roomtk($id_loaiphong, $checkin, $checkout){
         $sql ="SELECT phong.*, SUBSTRING(mota, 1, 70) AS mota_ngan, COUNT(dat_phong.id_phong) AS so_lan_dat
         FROM phong
-        LEFT JOIN dat_phong ON phong.id_phong = dat_phong.id_phong where 1";
+        LEFT JOIN dat_phong ON phong.id_phong = dat_phong.id_phong where phong.active = '1'";
 
         if ($id_loaiphong >0) {
             $sql.= " and id_loaiphong='$id_loaiphong'";
@@ -70,7 +82,11 @@
         return $list;
     }
     function delete_room($id_phong){
-        $sql = "delete from phong where id_phong='$id_phong'";
+        $sql = "update phong set active = '2' where id_phong = '$id_phong'";
+        pdo_execute($sql);
+    }
+    function return_room($id_phong){
+        $sql = "update phong set active = '1' where id_phong = '$id_phong'";
         pdo_execute($sql);
     }
     function loadten_loai($id_loaiphong){
@@ -104,7 +120,7 @@
         return $list;
     }
     function soluong_room(){
-        $sql = "SELECT COUNT(id_phong) FROM phong"; 
+        $sql = "SELECT COUNT(id_phong) FROM phong where active = '1'"; 
         $dem = pdo_query_value($sql);
         return $dem;
     }

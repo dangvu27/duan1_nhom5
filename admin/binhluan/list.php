@@ -62,7 +62,7 @@
                                                 <td>' . $id_TK . '</td>
                                                 <td>' . $tenphong . '</td>
                                                 <td>' . $thoi_gian . ' </td>
-                                                <td> <a href="index.php?act=deletesp&id=' . $id_BL . '">Delete</a></td>
+                                                <td> <a href="index.php?act=deletebl&id=' . $id_BL . '">Delete</a></td>
                                             </tr>';
                                     }
                                     ?>

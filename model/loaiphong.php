@@ -8,13 +8,12 @@
         pdo_execute($sql);
     }
     function loadall_loai(){
-        $sql ="select * from loai_phong where 1";
-        // if ($kyw != "") {
-        //     $sql.= " and ten_phong like %'$kyw'%";
-        // }
-        // if ($id_loaiphong >0) {
-        //     $sql.= " and id_loaiphong like %'$id_loaiphong'%";
-        // }
+        $sql ="select * from loai_phong where active = '1'";
+        $list = pdo_query($sql);
+        return $list;
+    }
+    function loadall_loaixoa(){
+        $sql ="select * from loai_phong where active = '2'";
         $list = pdo_query($sql);
         return $list;
     }
@@ -24,7 +23,15 @@
         return $list;
     }
     function delete_loai($id_loaiphong){
-        $sql = "delete from loai_phong where id_loaiphong='$id_loaiphong'";
+        $sql = "update loai_phong set active = '2' where id_loaiphong='$id_loaiphong'";
         pdo_execute($sql);
+        $sqll = "UPDATE phong SET active = '2' WHERE active = '1' AND id_loaiphong = '$id_loaiphong'";
+        pdo_execute($sqll);
+    }
+    function return_loai($id_loaiphong){
+        $sql = "update loai_phong set active = '1' where id_loaiphong='$id_loaiphong'";
+        pdo_execute($sql);
+        $sqll = "UPDATE phong SET active = '1' WHERE active = '2' AND id_loaiphong = '$id_loaiphong'";
+        pdo_execute($sqll);
     }
 ?>

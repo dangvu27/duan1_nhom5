@@ -8,11 +8,11 @@
         pdo_execute($sql);
     }
     function delete_dp($id_DP){
-        $sql = "delete from dat_phong where id_DP='$id_DP'";
+        $sql = "update dat_phong set active = '2' where id_DP='$id_DP'";
         pdo_execute($sql);
     }
     function loadall_dp($id_phong, $kyw) {
-        $sql = "select * from dat_phong where 1";
+        $sql = "select * from dat_phong where active = '1'";
         if ($id_phong > 0) {
             $sql .= " and id_phong = '$id_phong'";
         }

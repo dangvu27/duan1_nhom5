@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý phòng</title>
+    <title>Quản lý</title>
     <link rel="shortcut icon" href="./images/1x/logo_full_2.png" type="image/png">
     
     <link rel="preconnect" href="https://fonts.gstatic.com">

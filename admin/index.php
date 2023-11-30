@@ -7,6 +7,7 @@
         include "../model/loaiphong.php";
         include "../model/taikhoan.php";
         include "../model/binhluan.php";
+        include "../model/role.php";
 
         include "header.php";
 
@@ -25,6 +26,10 @@
                 case 'listdm':
                     $listdm = loadall_loai();
                     include "loaiphong/list.php";
+                    break;
+                case 'listxoalp':
+                    $listdm = loadall_loaixoa();
+                    include "loaiphong/listxoa.php";
                     break;
                 case 'sualp':
                     if (isset($_GET['id'])&&($_GET['id']>0)) {
@@ -48,6 +53,13 @@
                     $listdm = loadall_loai();
                     include "loaiphong/list.php";
                     break;
+                case 'khoiphuclp':
+                    if (isset($_GET['id'])&&($_GET['id']>0)) {
+                        return_loai($_GET['id']);
+                    }
+                    $listdm = loadall_loaixoa();
+                    include "loaiphong/listxoa.php";
+                    break;
                 ///END LOẠI PHÒNG
                 
                 /// QUẢN LÝ PHÒNG 
@@ -66,6 +78,18 @@
                     $listdm = loadall_loai();
                     $listsp = loadall_room($kyw, $id_loaiphong, $checkin, $checkout);
                     include "room/list.php";
+                    break;
+                case 'listxoa':
+                    if (isset($_POST['timkiemsp'])&&($_POST['timkiemsp'])) {
+                        $kyw = $_POST['kyw'];
+                        $id_loaiphong = $_POST['id_loaiphong'];
+                    } else {
+                        $kyw = "";
+                        $id_loaiphong = 0;
+                    }
+                    $listdm = loadall_loai();
+                    $listsp = loadall_roomxoa($kyw,$id_loaiphong);
+                    include "room/listxoa.php";
                     break;
                 case 'addsp':
                     if (isset($_POST['themmoi'])&&($_POST['themmoi'])) {
@@ -115,7 +139,14 @@
                     $listsp = loadall_room("",0, "", "");
                     include "room/list.php";
                     break;
-                
+                case 'khoiphuc':
+                    if (isset($_GET['id'])&&($_GET['id']>0)) {
+                        return_room($_GET['id']);
+                    }
+                    $listdm = loadall_loai();
+                    $listsp = loadall_roomxoa("",0);
+                    include "room/listxoa.php";
+                    break;
                 /// END PHÒNG
 
                 /// QUẢN LÝ TÀI KHOẢN
@@ -135,13 +166,15 @@
                     $listtk = loadall_tk();
                     include "taikhoan/list.php";   
                     break;
-                
+                case 'listxoatk':
+                    $listtk = loadall_tkxoa();
+                    include "taikhoan/listxoa.php";   
+                    break;
                 case 'suatk':
-                    
                     if(isset($_GET['id']) && ($_GET['id'] > 0)){
-                        $taikhoan = loadone_tk($_GET['id']);
+                        $taikhoan = loadtk($_GET['id']);
                     }
-                    $loadtk = loadall_tk();
+                    $listrole = loadall_role();
                     include "../admin/taikhoan/update.php";
                     break;
                 
@@ -158,13 +191,19 @@
                     $listtk = loadall_tk();
                     include "taikhoan/list.php";   
                     break;
-                
                 case 'xoatk':
                     if(isset($_GET['id'])){
                         xoatk($_GET['id']);
                     }
                     $listtk = loadall_tk();
                     include "taikhoan/list.php"; 
+                    break;
+                case 'khoiphuctk':
+                    if(isset($_GET['id'])){
+                        returntk($_GET['id']);
+                    }
+                    $listtk = loadall_tkxoa();
+                    include "taikhoan/listxoa.php"; 
                     break;
                 /// END TÀI KHOẢN
 

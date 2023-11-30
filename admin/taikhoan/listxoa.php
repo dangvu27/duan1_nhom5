@@ -16,12 +16,11 @@
                     
                     <div class="box">
                         <div class="box-header">
-                           Danh sách tài khoản
+                           Danh sách tài khoản đã xóa
                            
                         </div>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a href="index.php?act=addtk"><input type="submit" value="Thêm mới" class="btn btn-primary"></a>   
-                        <a href="index.php?act=listxoatk"><input type="submit" value="Đã Xóa" class="btn btn-primary"></a>   
+                        <a href="index.php?act=listtk"><input type="submit" value="Danh Sách" class="btn btn-primary"></a>    
                         </div>
                         <div class="box-body">
                             <table>
@@ -32,7 +31,7 @@
                                         <th>Password</th>
                                         <th>Email</th>
                                         <th>SĐT</th>
-                                        <th>Role</th>
+                                        <th>Vai trò</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,7 +46,7 @@
                                                   <th>'.$email.'</th>
                                                   <th>'.$SDT.'</th>
                                                   <th>'.$vaitro.'</th>
-                                                <td><a href="index.php?act=suatk&id='.$id_TK.'"><input type="submit" value="Sửa" class="btn btn-primary"></a> | <a href="index.php?act=xoatk&id='.$id_TK.'"><input type="submit" value="Xóa" class="btn btn-primary"></a></td>
+                                                <td><a href="index.php?act=suatk&id='.$id_TK.'"><input type="submit" value="Sửa" class="btn btn-primary"></a> | <a href="index.php?act=khoiphuctk&id='.$id_TK.'"><input type="submit" value="Khôi Phục" class="btn btn-primary"></a></td>
                                             </tr>';
                                         }
                                     ?>

@@ -17,15 +17,15 @@
                 <div class="box">
                     <div class="row justify-content-between box-header">
                         <div class="col-4 ">
-                            Danh sách phòng
+                            Danh sách phòng đã xóa
                         </div>
                         <div class="col-2">
-                            <a href="index.php?act=addsp"><input type="submit" value="Thêm mới" class="btn btn-primary"></a>
-                            <a href="index.php?act=listxoa"><input type="button" value="Đã Xóa" class="btn btn-primary"></a>
+                            <!-- <a href="index.php?act=addsp"><input type="submit" value="Thêm mới" class="btn btn-primary"></a> -->
+                            <a href="index.php?act=listsp"><input type="button" value="Danh Sách" class="btn btn-primary"></a>
                         </div>
                     </div>
 
-                    <form action="index.php?act=listsp" method="post">
+                    <form action="index.php?act=listxoa" method="post">
                         <div class="input-group mb-3">
                             <label class="input-group-text" for="inputGroupSelect01">Loại Phòng</label>
                             <select class="form-select" name="id_loaiphong">
@@ -39,20 +39,6 @@
                                 ?>
                             </select>
                         </div>
-
-                        <div class="input-group date mb-3">
-                            <input type="text" class="form-control" id="checkin" name="checkin" placeholder="Ngày checkin">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i><iconify-icon icon="uiw:date"></iconify-icon></i></span>
-                            </div>
-                        </div>
-                        <div class="input-group date mb-3">
-                            <input type="text" class="form-control" id="checkout" name="checkout" placeholder="Ngày checkout">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i><iconify-icon icon="uiw:date"></iconify-icon></i></span>
-                            </div>
-                        </div>
-
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Tìm kiếm" name="kyw">
                             <input type="submit" value="Tìm kiếm" name="timkiemsp" class="btn btn-outline-secondary">
@@ -107,9 +93,9 @@
                                                     <textarea rows="4" cols="50">' . $mota . '</textarea>
                                                 </td>
                                                 <td>' . $gia . '</td>
-                                                <td>' . $trangthai . '</td> 
-                                                <td><a href="index.php?act=suasp&id=' . $id_phong . '"><input type="button" value="Sửa" class="btn btn-primary"></a> | <a href="index.php?act=deletesp&id=' . $id_phong . '"><input type="button" value="Xóa" class="btn btn-primary"></a></td>
-                                            </tr>';
+                                                <td>' . $trangthai . '</td>
+                                                <td><a href="index.php?act=suasp&id=' . $id_phong . '"><input type="button" value="Sửa" class="btn btn-primary"></a> | <a href="index.php?act=khoiphuc&id=' . $id_phong . '"><input type="button" value="Khôi Phục" class="btn btn-primary"></a></td>
+                                            </tr>'; 
                                     }
                                     ?>
                                 </tbody>

@@ -5,7 +5,11 @@
         pdo_execute($sql);
     }
     function xoatk($id_TK){
-        $sql = "DELETE FROM taikhoan WHERE id_TK=".$id_TK;
+        $sql = "update taikhoan set active = '2' WHERE id_TK=".$id_TK;
+        pdo_execute($sql);
+    }
+    function returntk($id_TK){
+        $sql = "update taikhoan set active = '1' WHERE id_TK=".$id_TK;
         pdo_execute($sql);
     }
     function checkuser($userName, $pass){
@@ -14,12 +18,17 @@
         return $result;
     }
     function loadall_tk(){
-        $sql = "SELECT * FROM taikhoan WHERE 1";
+        $sql = "SELECT * FROM taikhoan WHERE active = '1'";
         $result = pdo_query($sql);
         return $result;
     }
-    function updatetk($id_TK,$userName,$pass,$email,$SDT){
-        $sql = "UPDATE taikhoan SET userName = '".$userName."', pass = '".$pass."', email = '".$email."', SDT = '".$SDT."' where id_TK=".$id_TK;
+    function loadall_tkxoa(){
+        $sql = "SELECT * FROM taikhoan WHERE active = '2'";
+        $result = pdo_query($sql);
+        return $result;
+    }
+    function updatetk($id_TK,$userName,$pass,$email,$SDT, $role){
+        $sql = "UPDATE taikhoan SET userName = '".$userName."', pass = '".$pass."', email = '".$email."', SDT = '".$SDT."', role = '$role' where id_TK=".$id_TK;
         pdo_execute($sql);
     }
     function loadtk($id_TK){
@@ -28,7 +37,7 @@
         return $room;
     }
     function demtk($role){
-        $sql = "SELECT COUNT(id_TK) FROM taikhoan where role = '$role'"; 
+        $sql = "select COUNT(id_TK) FROM taikhoan where role = '$role' and active = '1'"; 
         $dem = pdo_query_value($sql);
         return $dem;
     }

@@ -21,6 +21,7 @@
                         </div>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <a href="index.php?act=addlp"><input type="submit" value="Thêm mới" class="btn btn-primary"></a>    
+                        <a href="index.php?act=listxoalp"><input type="submit" value="Đã Xóa" class="btn btn-primary"></a>   
                         </div>
                         <div class="box-body">
                             <table>
@@ -42,7 +43,7 @@
                                                         <span>'.$ten_LP.'</span>
                                                     </div>
                                                 </td>
-                                                <td><a href="index.php?act=sualp&id='.$id_loaiphong.'">Update</a> | <a href="index.php?act=deletelp&id='.$id_loaiphong.'">Delete</a></td>
+                                                <td><a href="index.php?act=sualp&id='.$id_loaiphong.'"><input type="submit" value="Sửa" class="btn btn-primary"></a> | <a href="index.php?act=deletelp&id='.$id_loaiphong.'"><input type="submit" value="Xóa" class="btn btn-primary"></a></td>
                                             </tr>';
                                         }
                                     ?>
