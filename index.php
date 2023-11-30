@@ -8,7 +8,6 @@
     include "model/khachhang.php";
     include "model/datphong.php";
     include "view/header.php";
-    
     if (isset($_GET['act'])&&($_GET['act'] != "")) {
         $act = $_GET['act'];
         switch ($act) {
@@ -41,7 +40,7 @@
                 $listsp = load6_roomtk($loaiphong, $checkin, $checkout);
                 include "view/room.php";
                 break;  
-            case 'dangky-dangnhap':
+            case 'dangnhap':
                 if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
                     $userName = $_POST['userName'];
                     $pass = $_POST['pass'];
@@ -50,29 +49,52 @@
                         $_SESSION['user'] = $tk;
                         header('location: index.php');
                         exit();
+                    } else {
+                        echo "<script>
+                            alert('Vui lòng kiểm tra lại tài khoản, mật khẩu!');
+                        </script>";
                     }
                 }
-                // if (isset($_POST['dangky']) && ($_POST['dangky'])) {
-                //     $userName = $_POST['userName'];
-                //     $SDT = $_POST['SDT'];
-                //     $email = $_POST['email'];
-                //     $pass = $_POST['pass'];
-                //     $sql = "SELECT COUNT(email) FROM taikhoan WHERE email = '$email'";
-                //     $check = pdo_query_value($sql);
-                //     if ($check  > 0) {
-                //         include "view/dangnhapdangky.php";
-                //     } else {
-                //         inserttk($userName, $pass, $email, $SDT);
-                //         echo "Đã đăng ký thành công, vui lòng đăng nhập tài khoản";
-                //         ob_start(); // Bắt đầu đệm đầu ra
-                //         header('location: index.php');
-                //         ob_end_flush(); // Gửi đầu ra từ bộ đệm và kết thúc
-                //         exit();
-                //     }
-                // } else {
-                    include "view/dangnhapdangky.php";
-                // }
-                break;      
+                include "view/dangnhap.php";
+                break;  
+            case 'dangky':
+                if (isset($_POST['dangky']) && ($_POST['dangky'])) {
+                    $userName = $_POST['userName'];
+                    $SDT = $_POST['SDT'];
+                    $email = $_POST['email'];
+                    $pass = $_POST['pass'];
+                    $sql = "SELECT COUNT(email) FROM taikhoan WHERE email = '$email'";
+                    $check = pdo_query_value($sql);
+                    if ($check  > 0) {
+                        echo "<script>
+                            alert('email đã được sử dụng!');
+                        </script>";
+                        // include "view/dangky.php";
+                    } else {
+                        inserttk($userName, $pass, $email, $SDT);
+                        echo "<script>
+                            alert('Đăng kí thành công tài khoản!');
+                        </script>";
+                        // header('location: index.php?act=dangnhap');
+                        // exit();
+                    }
+                }
+                include "view/dangky.php";
+                break; 
+            case 'quenmk':
+                if (isset($_POST['guimk']) && ($_POST['guimk'])) {
+                    $Email = $_POST['Email'];
+                    $checkemail = checkemail($Email);
+                    if(is_array($checkemail)){
+                        $thongbao = "mật khẩu của bạn là: ".$checkemail['pass'];
+                    }else{
+                        echo "<script>
+                        alert('Email vừa nhập không tồn tại! vui lòng nhập lại');
+                      </script>";
+                    }
+                }
+                include "view/quenmk.php";
+                break;   
             case 'binhluan':
                 if (isset($_POST['guibl'])&&($_POST['guibl'])) {
                     $noi_dung = $_POST['noi_dung'];

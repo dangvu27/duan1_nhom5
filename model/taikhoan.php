@@ -17,6 +17,11 @@
         $result = pdo_query_one($sql);
         return $result;
     }
+    function checkemail($Email){
+        $sql = "SELECT * FROM taikhoan WHERE email='$Email'";
+        $result = pdo_query_one($sql);
+        return $result;
+    }
     function loadall_tk(){
         $sql = "SELECT * FROM taikhoan WHERE active = '1'";
         $result = pdo_query($sql);
