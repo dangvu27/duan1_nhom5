@@ -3,9 +3,11 @@
     if (isset($_SESSION['user'])&&($_SESSION['user']['role'] == 1)) {
         include "../model/pdo.php";
         include "../model/room.php";
+        include "../model/datphong.php";
         include "../model/loaiphong.php";
         include "../model/taikhoan.php";
         include "../model/binhluan.php";
+
         include "header.php";
 
         if (isset($_GET['act'])) {
@@ -181,6 +183,22 @@
 
                 /// end bình luận
 
+                /// bắt đầu đặt phòng
+                case 'adddp':
+                    include "datphong/add.php";
+                    break;
+                case 'listdp':
+                    if (isset($_POST['timkiemdp'])&&($_POST['timkiemdp'])) {
+                        $kyw = $_POST['kyw'];
+                        $id_phong = $_POST['id_phong'];
+                    } else {
+                        $kyw = "";
+                        $id_phong = 0;
+                    }
+                    $listdp = loadall_dp($id_phong, $kyw);
+                    $listsp = loadall_room("", 0, "", "");
+                    include "datphong/list.php";
+                    break;
                 default:
                     include "home.php";
                     break;

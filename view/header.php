@@ -20,7 +20,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->   
+    <!-- Libraries Stylesheet    -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
@@ -34,14 +34,6 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     
-
-    <!-- Bootstrap Datepicker CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-
-    <!-- Bootstrap Datepicker JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.en-GB.min.js"></script>
-
     <script type="application/x-javascript">
       addEventListener("load", function() {
           setTimeout(hideURLbar, 0);
@@ -91,16 +83,16 @@
                                 <a href="index.php?act=lh" class="nav-item nav-link">Liên hệ</a>
                             </div>
                             <?php
-                                if (isset($_SESSION['user'])) {
-                                    if ($_SESSION['user']['role'] == 1){
-                                        echo'<a href="admin/index.php" class="btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">'.$_SESSION['user']['userName'].'</a>';
+                                    if (isset($_SESSION['user'])) {
+                                        if ($_SESSION['user']['role'] == 1){
+                                            echo'<a href="admin/index.php" class="nav-item nav-link btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">'.$_SESSION['user']['userName'].'</a>';
+                                        } else {
+                                            echo'<a href="#" class="nav-item nav-link btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">'.$_SESSION['user']['userName'].'</a>';
+                                        }
                                     } else {
-                                        echo'<a href="#" class="btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">'.$_SESSION['user']['userName'].'</a>';
+                                        echo'<a href="index.php?act=dangky-dangnhap" class="nav-item nav-link btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">Đăng Nhập</a>';
                                     }
-                                } else {
-                                    echo'<a href="index.php?act=dangky-dangnhap" class="btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">Đăng Nhập</a>';
-                                }
-                            ?>
+                                ?>
                         </div>
                     </nav>
                 </div>
@@ -176,7 +168,22 @@
                             </div>
                         </div>';
                         break;    
-                    
+                    case 'dangky-dangnhap':
+                        echo '<div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
+                            <div class="container-fluid page-header-inner py-5">
+                                <div class="container text-center pb-5">
+                                    <h1 class="display-3 text-white mb-3 animated slideInDown">Đăng Nhập - Đăng Ký</h1>
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb justify-content-center text-uppercase">
+                                            <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Trang</a></li>
+                                            <li class="breadcrumb-item text-white active" aria-current="page">Đăng Nhập - Đăng Ký</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>';
+                        break;
                         
                     default:
                         echo'<div class="container-fluid p-0 mb-5">
@@ -188,7 +195,7 @@
                                         <div class="p-3" style="max-width: 700px;">
                                             <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Cuộc sống sang trọng</h6>
                                             <h1 class="display-3 text-white mb-4 animated slideInDown">Khám phá khách sạn sang trọng có thương hiệu</h1>
-                                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Những căn phòng</a>
+                                            <a href="index.php?act=tksp" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Những căn phòng</a>
                                             <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Đặt phòng</a>
                                         </div>
                                     </div>
@@ -199,7 +206,7 @@
                                         <div class="p-3" style="max-width: 700px;">
                                             <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Cuộc sống sang trọng</h6>
                                             <h1 class="display-3 text-white mb-4 animated slideInDown">Khám phá khách sạn sang trọng có thương hiệu</h1>
-                                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Những căn phòng</a>
+                                            <a href="index.php?act=tksp" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Những căn phòng</a>
                                             <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Đặt phòng</a>
                                         </div>
                                     </div>
@@ -229,7 +236,7 @@
                                         <div class="p-3" style="max-width: 700px;">
                                             <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Cuộc sống sang trọng</h6>
                                             <h1 class="display-3 text-white mb-4 animated slideInDown">Khám phá khách sạn sang trọng có thương hiệu</h1>
-                                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Những căn phòng</a>
+                                            <a href="index.php?act=tksp" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Những căn phòng</a>
                                             <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Đặt phòng</a>
                                         </div>
                                     </div>
@@ -240,7 +247,7 @@
                                         <div class="p-3" style="max-width: 700px;">
                                             <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Cuộc sống sang trọng</h6>
                                             <h1 class="display-3 text-white mb-4 animated slideInDown">Khám phá khách sạn sang trọng có thương hiệu</h1>
-                                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Những căn phòng</a>
+                                            <a href="index.php?act=tksp" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Những căn phòng</a>
                                             <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Đặt phòng</a>
                                         </div>
                                     </div>
@@ -274,7 +281,6 @@
                                         <div class="date" id="date1" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input"
                                             placeholder="Ngày checkin" data-target="#date1" data-toggle="datetimepicker" name="ngayden"/>
-                                            <!-- <input type="date" placeholder="Ngày checkin" class="form-control" id="ngayden" name="ngayden"> -->
                                         </div>
                                     </div>
                                     <div class="col-md-4">

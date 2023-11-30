@@ -23,9 +23,9 @@
                     <br>
 
                     <div class="row g-3 pb-4">
-                        <button type="button" class="btn btn-outline-secondary">
+                        <a href="index.php?act=booking&id=<?php echo $id_phong?>" class="btn btn-outline-secondary">
                             <h6 class="section-title  text-primary text-uppercase">Đặt phòng</h6>
-                        </button>
+                        </a>
                     </div>
                     <!-- <a class="btn btn-primary py-3 px-5 mt-2" href="index.php?act=gt">Explore More</a> -->
                 </div>
