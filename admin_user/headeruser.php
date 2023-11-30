@@ -79,7 +79,14 @@
                     <span>Thông Tin Tài Khoản</span>
                 </a>
             </li>
-
+            <li>
+                <a href="indexuser.php?act=listdh">
+                    <i>
+                        <iconify-icon icon="material-symbols:shopping-cart-sharp"></iconify-icon>
+                    </i>
+                    <span>Quản lý Đặt Phòng</span>
+                </a>
+            </li>
 
         </ul>
 

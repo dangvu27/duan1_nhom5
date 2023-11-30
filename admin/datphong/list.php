@@ -19,8 +19,9 @@
                         <div class="col-4 ">
                             Danh sách đặt phòng
                         </div>
-                        <div class="col-4">
-                            <a href="index.php?act=adddp"><input type="submit" value="Thêm mới" class="btn btn-primary"></a>
+                        <div class="col-2">
+                            <a href="index.php?act=adddp"><input type="submit" value="Thêm mới"
+                                    class="btn btn-primary"></a>
                         </div>
                     </div>
 
@@ -42,51 +43,40 @@
                             <input type="text" class="form-control" placeholder="Tìm kiếm" name="kyw">
                             <input type="submit" value="Tìm kiếm" name="timkiemdp" class="btn btn-outline-secondary">
                         </div>
-
-
                         <div class="box-body">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Tên Khách Hàng</th>
-                                        <th>SĐT</th>
-                                        <th>Ngày Đặt</th>
-                                        <th>Ngày Đến</th>
-                                        <th>Ngày Về</th>
-                                        <th>Thành Tiền</th>
-                                        <th>Khuyến Mãi</th>
-                                        <th>Tài Khoản</th>
-                                        <th>Tên Phòng</th>
+                                        <th>mã đơn</th>
+                                        <th>Name</th>
+                                        <th>ngày đặt</th>
+                                        <th>Số tiền</th>
                                         <th>Trạng thái</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($listdp as $kk) {
-                                        extract($kk);
-                                        $trangthai = "chuaco";
-                                        $ten_phong = loadten_phong($id_phong);
-                                        echo '<tr>
-                                                <td>' . $id_DP . '</td>
-                                                <td>' . $ten_KH . '</td>
-                                                <td>' . $SDT . '</td>
-                                                <td>'.$ngay_dat.'</td>
-                                                <td>'.$ngay_den.'</td>
-                                                <td>'.$ngay_ve.'</td>
-                                                <td>' . $thanh_tien . '</td>
-                                                <td>' . $id_KM . '</td>
-                                                <td>'.$id_TK.'</td>
-                                                <td>' . $ten_phong . '</td>
-                                                <td>' . $trangthai . '</td>
-                                                
-                                            </tr>';
+                                        foreach ($listdp as $key) {
+                                            extract($key);
+                                            $tenphong = loadten_phong($id_phong);
+                                            $tentt = ten_trangthai($trang_thai);
+                                            echo'<tr>
+                                                  <th>'.$id_DP.'</th>
+                                                  <th>'.$tenphong.'</th>
+                                                  <th>'.$ngay_dat.'</th>
+                                                  <th>'.$thanh_tien.'</th>
+                                                  <th><span class="order-status order-cho">'.$tentt.'</span></th> 
+                                                  <td><a href="index.php?act=chitietdh&id='.$id_DP.'"><input type="button"
+                                                value="Xem chi tiết" class="btn btn-primary"></a></td>
+                                    </tr>';
                                     }
                                     ?>
-                                            <!-- <td><span class="order-status order-ready">' . $trangthai . '</span></td> -->
+
                                 </tbody>
                             </table>
                         </div>
+
+
                     </form>
                 </div>
 

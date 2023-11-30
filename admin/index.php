@@ -8,6 +8,8 @@
         include "../model/taikhoan.php";
         include "../model/binhluan.php";
         include "../model/role.php";
+        include "../model/donhang.php";
+        include "../model/trangthai.php";
 
         include "header.php";
 
@@ -219,7 +221,32 @@
                     $listbl = loadall_bl($id_phong);
                     include "binhluan/list.php";
                     break;
-
+                case 'deletebl':
+                    if(isset($_GET['id'])){
+                        delete_bl($_GET['id']);
+                    }
+                    $listsp = loadall_room("", 0, "", "");
+                    $listbl = loadall_bl(0);
+                    include "binhluan/list.php";
+                    break;
+                case 'returnbl':
+                    if(isset($_GET['id'])){
+                        return_bl($_GET['id']);
+                    }
+                    $listsp = loadall_room("", 0, "", "");
+                    $listbl = loadall_blxoa(0);
+                    include "binhluan/listxoa.php";
+                    break;
+                case 'listblxoa':
+                    if (isset($_POST['timkiembl'])&&($_POST['timkiembl'])) {
+                        $id_phong = $_POST['id_phong'];
+                    } else {
+                        $id_phong = 0;
+                    }
+                    $listsp = loadall_room("", 0, "", "");
+                    $listbl = loadall_blxoa($id_phong);
+                    include "binhluan/listxoa.php";
+                    break;
                 /// end bình luận
 
                 /// bắt đầu đặt phòng
@@ -235,6 +262,30 @@
                         $id_phong = 0;
                     }
                     $listdp = loadall_dp($id_phong, $kyw);
+                    $listsp = loadall_room("", 0, "", "");
+                    include "datphong/list.php";
+                    break;
+                case 'chitietdh':
+                    if(isset($_GET['id']) && ($_GET['id'] > 0)){
+                        $id_DP = $_GET['id'];
+                        $listdh2 = loadone_dh($id_DP);
+                    }
+                    include "datphong/chitietdp.php";
+                    break;
+                case 'suatrangthai':
+                    if (isset($_GET['id'])&&($_GET['id'])) {
+                        $dh = loadone_dh($_GET['id']);
+                    }
+                    $listtrangthai = all_trangthai();
+                    include "datphong/update.php";
+                    break;
+                case 'capnhattrangthai':
+                    if (isset($_POST['capnhattt'])&&($_POST['capnhattt'])) {
+                        $trangthai = $_POST['trangthai'];
+                        $id_DP = $_POST['iddp'];
+                        update_dp($id_DP, $trangthai);
+                    }
+                    $listdp = loadall_dp(0, "");
                     $listsp = loadall_room("", 0, "", "");
                     include "datphong/list.php";
                     break;

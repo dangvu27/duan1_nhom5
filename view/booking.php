@@ -35,7 +35,7 @@
                                 <div class="form-floating">
                                     <input type="text" name="ten" class="form-control" id="name" placeholder="Nhập Tên" value="<?php 
                                         if ((isset($kh['ten']))&&($kh['ten']!="")) {
-                                            echo $ten;
+                                            echo $kh['ten'];
                                         } elseif (isset($_SESSION['user']['userName'])&&($_SESSION['user']['userName']!="")) {
                                             echo $_SESSION['user']['userName'];  
                                         }?>">        

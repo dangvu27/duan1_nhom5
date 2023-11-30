@@ -28,11 +28,11 @@
                 break;
             case 'tksp':
                 if (isset($_POST['Timkiem'])&&($_POST['Timkiem'])) {
-                    $checkin = $_POST['ngayden'];
-                    $checkout = $_POST['ngayve'];
+                    $checkin = date("Y-m-d", strtotime($_POST['ngayden']));
+                    $checkout = date("Y-m-d", strtotime($_POST['ngayve']));
                     $loaiphong = $_POST['loaiphong'];
-                    $_SESSION['checkin'] = $_POST['ngayden'];
-                    $_SESSION['checkout'] = $_POST['ngayve'];
+                    $_SESSION['checkin'] = date("Y-m-d", strtotime($_POST['ngayden']));
+                    $_SESSION['checkout'] = date("Y-m-d", strtotime($_POST['ngayve']));
                 } else {
                     $loaiphong = 0;
                     $checkin = "";
@@ -103,9 +103,11 @@
                     $ten = $_POST['ten'];
                     $sdt = $_POST['sdt'];
                     $email = $_POST['email'];
-                    $ngaydat = date('Y-m-d H:i:s');
-                    $ngayden = $_POST['ngayden'];
-                    $ngaydi = $_POST['ngaydi'];
+                    $ngaydat = date('Y-m-d');
+                    // date("Y-m-d H:i:s", strtotime($_POST['ngayden']))
+                    $ngayden = date("Y-m-d", strtotime($_POST['ngayden']));
+                    $ngaydi = date("Y-m-d", strtotime($_POST['ngaydi']));
+                    var_dump($ngayden,$ngaydi);
                     $id_KM = "1";
                     insert_dp($ten, $email, $sdt, $ngaydat, $ngayden, $ngaydi,$_SESSION['user']['id_TK'], $id_KM, $id_phong, $ghichu);
                 }

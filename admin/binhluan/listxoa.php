@@ -20,7 +20,7 @@
                             Danh sách bình luận
                         </div>
                         <div class="col-1">
-                            <a href="index.php?act=listblxoa"><input type="button" value="Đã Xóa" class="btn btn-primary"></a>
+                            <a href="index.php?act=listbl"><input type="button" value="Danh Sách" class="btn btn-primary"></a>
                         </div>
                     </div>
 
@@ -63,7 +63,7 @@
                                                 <td>' . $id_TK . '</td>
                                                 <td>' . $tenphong . '</td>
                                                 <td>' . $thoi_gian . ' </td>
-                                                <td> <a href="index.php?act=deletebl&id=' . $id_BL . '"><input type="button" value="Xóa" class="btn btn-primary"></a></td>
+                                                <td> <a href="index.php?act=returnbl&id=' . $id_BL . '"><input type="button" value="Khôi Phục" class="btn btn-primary"></a></td>
                                             </tr>';
                                     }
                                     ?>
