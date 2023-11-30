@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý</title>
+    <title>Quản lý phòng</title>
     <link rel="shortcut icon" href="./images/1x/logo_full_2.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -52,64 +52,34 @@
         <div class="sidebar-user">
             <div class="sidebar-user-info">
                 <div class="sidebar-user-name">
-                    <?php echo $_SESSION['user']['userName'];?>
+
+                    <span class="text-primary text-uppercase"> <?php echo $_SESSION['user']['userName'];?></span>
                 </div>
             </div>
-            <a href="../index.php?act=thoat">
-                <button class="btn btn-outline">
+            <a href="../index.php?act=thoat"><button class="btn btn-outline">
                     <i class='bx bx-log-out bx-flip-horizontal'></i>
                 </button></a>
         </div>
 
         <ul class="sidebar-menu">
             <li>
-                <a href="index.php?act=home">
+
+                <a href="indexuser.php?act=listkh">
                     <i>
-                        <iconify-icon icon="ion:home-sharp"></iconify-icon>
+                        <iconify-icon icon="twemoji:boy-dark-skin-tone"></iconify-icon>
                     </i>
-                    <span>Trung tâm điều khiển</span>
+                    <span>Thông Tin Cá Nhân</span>
                 </a>
             </li>
             <li>
-                <a href="index.php?act=listsp">
+                <a href="indexuser.php?act=listtk">
                     <i>
-                        <iconify-icon icon="guidance:hotel-room"></iconify-icon>
+                        <iconify-icon icon="mingcute:user-4-fill"></iconify-icon>
                     </i>
-                    <span>Quản Lý Phòng</span>
+                    <span>Thông Tin Tài Khoản</span>
                 </a>
             </li>
-            <li>
-                <a href="index.php?act=listdm">
-                    <i>
-                        <iconify-icon icon="ic:round-hotel"></iconify-icon>
-                    </i>
-                    <span>Quản lý Loại Phòng</span>
-                </a>
-            </li>
-            <li>
-                <a href="index.php?act=listtk">
-                    <i>
-                        <iconify-icon icon="mdi:account-cog"></iconify-icon>
-                    </i>
-                    <span>Quản lý Tài Khoản</span>
-                </a>
-            </li>
-            <li>
-                <a href="index.php?act=listbl">
-                    <i>
-                        <iconify-icon icon="fluent:comment-16-filled"></iconify-icon>
-                    </i>
-                    <span>Quản lý Bình Luận</span>
-                </a>
-            </li>
-            <li>
-                <a href="index.php?act=listdp">
-                    <i>
-                        <iconify-icon icon="material-symbols:shopping-cart-sharp"></iconify-icon>
-                    </i>
-                    <span>Quản lý Đặt Phòng</span>
-                </a>
-            </li>
+
 
         </ul>
 

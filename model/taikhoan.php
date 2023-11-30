@@ -31,6 +31,11 @@
         $sql = "UPDATE taikhoan SET userName = '".$userName."', pass = '".$pass."', email = '".$email."', SDT = '".$SDT."', role = '$role' where id_TK=".$id_TK;
         pdo_execute($sql);
     }
+    function updatetk_user($id_TK,$userName,$pass,$email,$SDT){
+        $sql = "UPDATE taikhoan SET userName = '".$userName."', pass = '".$pass."', email = '".$email."', SDT = '".$SDT."' where id_TK=".$id_TK;
+        pdo_execute($sql);
+    }
+
     function loadtk($id_TK){
         $sql ="SELECT * FROM taikhoan WHERE id_TK = '$id_TK'";
         $room = pdo_query_one($sql);

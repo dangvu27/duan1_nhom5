@@ -69,8 +69,8 @@
                                         <th>Ảnh</th>
                                         <th>Mô tả</th>
                                         <th>Giá</th>
-                                        <th>Action</th>
                                         <th>Trạng thái</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

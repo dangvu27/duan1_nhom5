@@ -14,8 +14,8 @@
         pdo_execute($sql);
     }
 
-    function insert_KH($ten,$tuoi,$SDT,$diachi,$CCCD){
-        $sql = "INSERT INTO khachhang (ten, tuoi, SDT, diachi, CCCD) VALUE ('$ten', '$tuoi', '$SDT', '$diachi', '$CCCD')";
+    function insert_KH($id_tk,$ten,$tuoi,$SDT,$diachi,$CCCD){
+        $sql = "INSERT INTO khachhang (id_TK,ten, tuoi, SDT, diachi, CCCD) VALUES ('$id_tk','$ten', '$tuoi', '$SDT', '$diachi', '$CCCD')";
         pdo_execute($sql);
     }
 ?>  

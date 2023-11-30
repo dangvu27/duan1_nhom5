@@ -42,7 +42,7 @@
         $sql ="SELECT phong.*, SUBSTRING(mota, 1, 70) AS mota_ngan, COUNT(dat_phong.id_phong) AS so_lan_dat
         FROM phong
         LEFT JOIN dat_phong ON phong.id_phong = dat_phong.id_phong
-        WHERE active = '1'
+        WHERE phong.active = '1'
         GROUP BY phong.id_phong
         ORDER BY COUNT(dat_phong.id_phong) DESC
         LIMIT 3";

@@ -87,7 +87,7 @@
                                         if ($_SESSION['user']['role'] == 1){
                                             echo'<a href="admin/index.php" class="nav-item nav-link btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">'.$_SESSION['user']['userName'].'</a>';
                                         } else {
-                                            echo'<a href="#" class="nav-item nav-link btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">'.$_SESSION['user']['userName'].'</a>';
+                                            echo'<a href="admin_user/indexuser.php" class="nav-item nav-link btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">'.$_SESSION['user']['userName'].'</a>';
                                         }
                                     } else {
                                         echo'<a href="index.php?act=dangky-dangnhap" class="nav-item nav-link btn btn-primary rounded-0 py-4 px-md-3 d-none d-lg-block">Đăng Nhập</a>';
