@@ -32,9 +32,7 @@
                         <h4>Thông tin tài khoản</h4>
                         <div class="container mt-3">       
                                 <table class="table table-hover">
-                                    <?php extract($listdh2);
-                                    $ten_KM = loadten_km($id_KM);
-                                    ?>
+                                    <?php extract($listdh2);?>
                                     <tbody>
                                     <tr>
                                         <th>mã đơn</th>
@@ -74,10 +72,6 @@
                                         <td><?php echo"$thanh_tien"?></td>
                                     </tr>
                                     <tr>
-                                        <th>SALE</th>
-                                        <td><?php echo"$ten_KM"?></td>
-                                    </tr>
-                                    <tr>
                                         <th>Ghi chú</th>
                                         <td><?php echo"$ghichu"?></td>
                                     </tr>
@@ -85,7 +79,9 @@
                                 </table>
                             <?php 
                                 if ($trang_thai == 1) {
-                                    echo '<a href="indexuser.php?act=huydon&id='.$id_DP.'"><button  type="button" class="btn btn-secondary text-white">Hủy đặt</button></a>';
+                                    echo '<div class="col-6">
+                                    <a href="indexuser.php?act=huydon&id='.$id_DP.'"><button  type="button" class="btn btn-secondary text-white">Hủy đặt</button></a>
+                                    </div>';
                                 }
                             ?> 
                         </div>

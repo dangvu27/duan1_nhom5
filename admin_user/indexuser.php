@@ -110,7 +110,7 @@
                     break;
                 case 'huydon':
                     if(isset($_GET['id']) && ($_GET['id'] > 0)){
-                        delete_dp($_GET['id']);
+                        huy_don($_GET['id']);
                     }
                     $id_tk = $_SESSION['user']['id_TK'];
                     $listdh = loadall_dh($id_tk);

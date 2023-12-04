@@ -7,6 +7,7 @@
     include "model/taikhoan.php";
     include "model/khachhang.php";
     include "model/datphong.php";
+    include "model/donhang.php";
     include "view/header.php";
     if (isset($_GET['act'])&&($_GET['act'] != "")) {
         $act = $_GET['act'];
@@ -99,7 +100,7 @@
                 if (isset($_POST['guibl'])&&($_POST['guibl'])) {
                     $noi_dung = $_POST['noi_dung'];
                     $id_phong = $_POST['id_phong'];
-                    $thoi_gian = date('Y-m-d');
+                    $thoi_gian = date('Y-m-d H:i:s');
                     insert_bl($noi_dung, $thoi_gian, $_SESSION['user']['id_TK'], $id_phong);
                 }
                 $phong = loadone_room($id_phong);
@@ -126,17 +127,55 @@
                     $sdt = $_POST['sdt'];
                     $email = $_POST['email'];
                     $ngaydat = date('Y-m-d');
-                    // date("Y-m-d H:i:s", strtotime($_POST['ngayden']))
+                    // date("Y-m-d H:i:s", strtotime($_POST['ngayden'])) định dạng lại ngày
                     $ngayden = date("Y-m-d", strtotime($_POST['ngayden']));
                     $ngaydi = date("Y-m-d", strtotime($_POST['ngaydi']));
-                    var_dump($ngayden,$ngaydi);
-                    $id_KM = "1";
-                    insert_dp($ten, $email, $sdt, $ngaydat, $ngayden, $ngaydi,$_SESSION['user']['id_TK'], $id_KM, $id_phong, $ghichu);
+                    // var_dump($ngayden,$ngaydi);
+
+                    $arrivalDate = new DateTime($ngayden);
+                    $departureDate = new DateTime($ngaydi);
+
+                    // Tính số ngày ở
+                    $interval = $arrivalDate->diff($departureDate);
+                    $numberOfDays = $interval->days;
+
+                    $room = loadone_room($id_phong);
+                    $total = $room['gia'] * $numberOfDays;
+                    $id_DP = uniqid();
+                    // setcookie('id_DP',$id_DP,time() + 60*60*24*2,"/view/bill.php");
+                    if (check_ngay($ngayden,$ngaydi,$id_phong) >= 1) {
+                        echo '<div class="alert alert-danger" role="alert">
+                        Ngày bạn chọn không còn trống. Vui lòng chọn phòng hoặc ngày khác!
+                    </div>';
+                        include "view/booking.php";
+                    } else {
+                        // insert_dp($id_DP, $ten, $email, $sdt, $ngaydat, $ngayden, $ngaydi,$_SESSION['user']['id_TK'], $id_phong, $ghichu, $total);
+                        // header('location: index.php');
+                        include "view/bill.php";
+                    }
+                    // include "view/bill.php";
                 }
-                echo "<script>
-                        alert('Đặt phòng thành công vui lòng chờ xác nhận!');
-                    </script>";
-                include "view/home.php";
+            break;    
+            case 'thanhtoan':
+                if (isset($_POST['thanh_toan'])&&($_POST['thanh_toan'])) {
+                    $id_DP = $_POST['id_DP'];
+                    $ten = $_POST['ten'];
+                    $email = $_POST['email'];
+                    $sdt = $_POST['sdt'];
+                    $ngaydat = $_POST['ngaydat'];
+                    $ngayden = $_POST['ngayden'];
+                    $ngaydi = $_POST['ngaydi'];
+                    $id_tk = $_POST['id_tk'];
+                    $id_phong = $_POST['id_phong'];
+                    $ghichu = $_POST['ghichu'];
+                    $total = $_POST['total'];
+                    insert_dp($id_DP, $ten, $email, $sdt, $ngaydat, $ngayden, $ngaydi,$id_tk, $id_phong, $ghichu, $total);
+                    thanhtoan($id_DP);
+                    echo '<script> alert("Thông báo: Thanh toán thành công");
+                    window.location.href = "index.php";
+                    </script>';
+                }
+                include "view/bill.php";
                 break;
             default:
                 include "view/home.php";

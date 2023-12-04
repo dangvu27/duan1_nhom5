@@ -36,9 +36,7 @@
                     </div>
                         <div class="container mt-3">       
                                 <table class="table table-hover">
-                                    <?php extract($listdh2);
-                                    $ten_KM = loadten_km($id_KM);
-                                    ?>
+                                    <?php extract($listdh2);?>
                                     <tbody>
                                     <tr>
                                         <th>mã đơn</th>
@@ -70,15 +68,12 @@
                                     </tr>
                                     <tr>
                                         <th>Trạng thái</th>
-                                        <td><?php echo"$trang_thai"?></td>
+                                        <?php $tentt = ten_trangthai($trang_thai); ?>
+                                        <td><span class="order-status order-cho"><?= $tentt ?></span></td>
                                     </tr>
                                     <tr>
                                         <th>Số tiền</th>
                                         <td><?php echo"$thanh_tien"?></td>
-                                    </tr>
-                                    <tr>
-                                        <th>SALE</th>
-                                        <td><?php echo"$ten_KM"?></td>
                                     </tr>
                                     <tr>
                                         <th>Ghi chú</th>

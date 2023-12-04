@@ -265,6 +265,18 @@
                     $listsp = loadall_room("", 0, "", "");
                     include "datphong/list.php";
                     break;
+                // case 'listdpxoa':
+                //     if (isset($_POST['timkiemdp'])&&($_POST['timkiemdp'])) {
+                //         $kyw = $_POST['kyw'];
+                //         $id_phong = $_POST['id_phong'];
+                //     } else {
+                //         $kyw = "";
+                //         $id_phong = 0;
+                //     }
+                //     $listdp = loadall_dpxoa($id_phong, $kyw);
+                //     $listsp = loadall_room("", 0, "", "");
+                //     include "datphong/listxoa.php";
+                //     break;    
                 case 'chitietdh':
                     if(isset($_GET['id']) && ($_GET['id'] > 0)){
                         $id_DP = $_GET['id'];

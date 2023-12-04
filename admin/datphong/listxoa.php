@@ -19,11 +19,10 @@
                         <div class="col-4 ">
                             Danh sách đặt phòng
                         </div>
-                        <div class="col-3">
-                            <a href="index.php?act=adddp"><input type="submit" value="Thêm mới"
+                        <div class="col-2">
+                            <a href="index.php?act=listdp"><input type="submit" value="Danh Sách"
                                     class="btn btn-primary"></a>
-                            <!-- <a href="index.php?act=listdpxoa"><input type="submit" value="Đơn Xóa"
-                                    class="btn btn-primary"></a> -->
+                            
                         </div>
                     </div>
 
@@ -35,7 +34,6 @@
                                 <?php
                                 foreach ($listsp as $key) {
                                     extract($key);
-                                    // reload_trangthai($id_DP);
                                     echo '
                                                 <option value="' . $id_phong . '">' . $ten_phong . '</option>';
                                 }
