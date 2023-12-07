@@ -15,9 +15,6 @@
             case 'gt':
                 include "view/gioithieu.php";
                 break;
-            case 'dv':
-                
-                break;
             case 'chitiet':
                 if((isset($_GET['id'])) && ($_GET['id'] > 0)){
                     $id = $_GET['id'];
@@ -66,19 +63,25 @@
                     $pass = $_POST['pass'];
                     $sql = "SELECT COUNT(email) FROM taikhoan WHERE email = '$email'";
                     $check = pdo_query_value($sql);
-                    if ($check  > 0) {
-                        echo "<script>
-                            alert('email đã được sử dụng!');
-                        </script>";
-                        // include "view/dangky.php";
-                    } else {
+                    $sql1 = "SELECT COUNT(userName) FROM taikhoan WHERE userName = '$userName'";
+                    $check1 = pdo_query_value($sql1);
+                    if ($check+$check1 == 0) {
                         inserttk($userName, $pass, $email, $SDT);
+                        echo '<script>
+                            alert("Đăng kí thành công tài khoản!");
+                            window.location.href = "index.php?act=dangnhap";
+                        </script>';
+                    } elseif ($check1 > 0) {
                         echo "<script>
-                            alert('Đăng kí thành công tài khoản!');
+                            alert('UserName đã được sử dụng!');
                         </script>";
-                        // header('location: index.php?act=dangnhap');
-                        // exit();
+                    } elseif ($check > 0) {
+                        echo "<script>
+                            alert('Email đã được sử dụng!');
+                        </script>";
                     }
+                        
+                 
                 }
                 include "view/dangky.php";
                 break; 
@@ -89,9 +92,9 @@
                     if(is_array($checkemail)){
                         $thongbao = "mật khẩu của bạn là: ".$checkemail['pass'];
                     }else{
-                        echo "<script>
-                        alert('Email vừa nhập không tồn tại! vui lòng nhập lại');
-                      </script>";
+                        echo '<script>
+                        alert("Email vừa nhập không tồn tại! vui lòng nhập lại");
+                      </script>';
                     }
                 }
                 include "view/quenmk.php";

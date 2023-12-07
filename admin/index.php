@@ -9,6 +9,7 @@
         include "../model/binhluan.php";
         include "../model/role.php";
         include "../model/donhang.php";
+        include "../model/thongke.php";
         include "../model/trangthai.php";
 
         include "header.php";
@@ -210,7 +211,6 @@
                 /// END TÀI KHOẢN
 
                 /// bình luận
-
                 case 'listbl':
                     if (isset($_POST['timkiembl'])&&($_POST['timkiembl'])) {
                         $id_phong = $_POST['id_phong'];
@@ -301,13 +301,25 @@
                     $listsp = loadall_room("", 0, "", "");
                     include "datphong/list.php";
                     break;
+                // end datphong
+
+                // thống kê
+                case 'home':
+                    $listthongke = loadall_thongke();
+                    include "home.php";
+                    break;
+
+                //end thống kê
                 default:
+                    $listthongke = loadall_thongke();
                     include "home.php";
                     break;
             }
 
-        } else include "home.php";
-
+        } else {
+            $listthongke = loadall_thongke();
+            include "home.php";
+        };
         include "footer.php";
     } else {
         header('location: ../index.php');

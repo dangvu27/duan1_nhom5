@@ -20,7 +20,7 @@
                     <!-- CUSTOMERS CHART -->
                     <div class="box f-height">
                         <div class="box-header">
-                            home
+                            Thống kê
                         </div>
                         <div class="box-body" >
                             <div id="customer-chart"></div>
@@ -32,44 +32,32 @@
                     
                     <div class="box">
                         <div class="box-header">
-                            Danh sách phòng
+                            Danh sách thống kê theo loại phòng
                         </div>
                         <div class="box-body">
                             <table>
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Tên phòng</th>
-                                        <th>Loại phòng</th>
-                                        <th>Giá</th>
-                                        <th>Mô tả</th>
-                                        <th>Ảnh</th>
+                                        <th>Tên Loại Phòng</th>
+                                        <th>Số lượng</th>
+                                        <th>Giá thấp nhất</th>
+                                        <th>Giá cao nhất</th>
+                                        <th>Giá trung bình</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>kh1</td>
-                                        <td>
-                                            <div class="order-owner">
-                                                <img src="./images/das_img/user-image-2.png" alt="user image">
-                                                <span>Nguyễn Thành Đạt</span>
-                                            </div>
-                                        </td>
-                                        <td>2021-05-09</td>
-                                        <td>
-                                            <span class="order-status order-ready">
-                                                Đang giao hàng
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="payment-status payment-pending">
-                                                <div class="dot"></div>
-                                                <span>Đang chờ xử lý</span>
-                                            </div>
-                                        </td>
-                                        <td>26.990.000 ₫</td>
-                                    </tr>
-                                    
+                                        <?php
+                                            foreach ($listthongke as $as) {
+                                                extract($as);
+                                                echo '<tr><td>'.$maloai.'</td>
+                                                <td>'.$tenloai.'</td>
+                                                <td>'.$soluong.'</td>
+                                                <td>'.$mingia.'</td>
+                                                <td>'.$maxgia.'</td>
+                                                <td>'.$avggia.'</td> </tr>';
+                                            }
+                                        ?>
                                 </tbody>
                             </table>
                         </div>

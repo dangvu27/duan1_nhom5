@@ -50,9 +50,10 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>mã đơn</th>
-                                        <th>Name</th>
-                                        <th>ngày đặt</th>
+                                        <th>Mã đơn</th>
+                                        <th>Tên khách hàng</th>
+                                        <th>Tên phòng</th>
+                                        <th>Ngày đặt</th>
                                         <th>Số tiền</th>
                                         <th>Trạng thái</th>
                                     </tr>
@@ -63,12 +64,20 @@
                                             extract($key);
                                             $tenphong = loadten_phong($id_phong);
                                             $tentt = ten_trangthai($trang_thai);
+                                            if ($trang_thai == 6) {
+                                                $class = 'order-status order-full';
+                                            } elseif ($trang_thai == 5) {
+                                                $class = 'order-status order-trong';
+                                            } else {
+                                                $class = 'order-status order-cho';
+                                            }
                                             echo'<tr>
                                                   <th>'.$id_DP.'</th>
+                                                  <th>'.$ten_KH.'</th>
                                                   <th>'.$tenphong.'</th>
                                                   <th>'.$ngay_dat.'</th>
                                                   <th>'.$thanh_tien.'</th>
-                                                  <th><span class="order-status order-cho">'.$tentt.'</span></th> 
+                                                  <th><span class="'.$class.'">'.$tentt.'</span></th> 
                                                   <td><a href="index.php?act=chitietdh&id='.$id_DP.'"><input type="button"
                                                 value="Xem chi tiết" class="btn btn-primary"></a></td>
                                     </tr>';

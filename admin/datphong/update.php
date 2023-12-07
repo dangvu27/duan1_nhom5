@@ -29,6 +29,10 @@
                                             extract($key);
                                             if ($id < $trang_thai) {
                                                 echo '<option value="'.$id.'" disabled>'.$ten_tt.'</option>';
+                                            } elseif ($id == '6') {
+                                                echo '<option value="'.$id.'" disabled>'.$ten_tt.'</option>';
+                                            } elseif ($id - $trang_thai >= 2) {
+                                                echo '<option value="'.$id.'" disabled>'.$ten_tt.'</option>';
                                             } elseif ($id == $trang_thai) {
                                                 echo '<option value="'.$id.'" selected>'.$ten_tt.'</option>';
                                             } else {

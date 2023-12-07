@@ -55,7 +55,6 @@
                                         <th>Ảnh</th>
                                         <th>Mô tả</th>
                                         <th>Giá</th>
-                                        <th>Trạng thái</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -63,19 +62,6 @@
                                     <?php
                                     foreach ($listsp as $key) {
                                         extract($key);
-                                        $listtrangthai = trangthai_room($id_phong);
-                                        foreach ($listtrangthai as $a) {
-                                            if ($a['trang_thai'] === "Đã Check-in") {
-                                                $trangthai = '<span class="order-status order-full"> Đã Check-in </span>';
-                                                break;
-                                            } elseif ($a['trang_thai'] === "Chờ") {
-                                                $y = 1;
-                                                $trangthai = '<span class="order-status order-cho"> Chờ </span>';
-                                                break;
-                                            } else {
-                                                $trangthai = '<span class="order-status order-trong"> Trống </span>';
-                                            }
-                                        }
                                         $ten_LP = loadten_loai($id_loaiphong);
                                         $url = "../images/" . $img;
                                         echo '<tr>
@@ -93,7 +79,6 @@
                                                     <textarea rows="4" cols="50">' . $mota . '</textarea>
                                                 </td>
                                                 <td>' . $gia . '</td>
-                                                <td>' . $trangthai . '</td>
                                                 <td><a href="index.php?act=suasp&id=' . $id_phong . '"><input type="button" value="Sửa" class="btn btn-primary"></a> | <a href="index.php?act=khoiphuc&id=' . $id_phong . '"><input type="button" value="Khôi Phục" class="btn btn-primary"></a></td>
                                             </tr>'; 
                                     }

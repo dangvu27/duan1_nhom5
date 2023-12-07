@@ -78,7 +78,7 @@
                                     </tbody>
                                 </table>
                             <?php 
-                                if ($trang_thai == 1) {
+                                if ($trang_thai == 2) {
                                     echo '<div class="col-6">
                                     <a href="indexuser.php?act=huydon&id='.$id_DP.'"><button  type="button" class="btn btn-secondary text-white">Hủy đặt</button></a>
                                     </div>';

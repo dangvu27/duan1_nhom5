@@ -23,6 +23,7 @@
         if (isset($kyw)&&($kyw != "")) {
             $sql .= " and ten_KH like '%".$kyw."%'";
         }
+        $sql .= " order by id_DP desc";
         $list = pdo_query($sql);
         return $list;
     }
