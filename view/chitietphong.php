@@ -23,9 +23,15 @@
                     <br>
 
                     <div class="row g-3 pb-4">
-                        <a href="index.php?act=booking&id=<?php echo $id_phong?>" class="btn btn-outline-secondary">
+                        <?php
+                            if (isset($_SESSION['user'])) {
+                                echo '<a href="index.php?act=booking&id=<?php echo $id_phong?>" class="btn btn-outline-secondary">
+                                <h6 class="section-title  text-primary text-uppercase">Đặt phòng</h6>
+                            </a>';
+                            } else echo '<a href="index.php?act=dangnhap" class="btn btn-outline-secondary">
                             <h6 class="section-title  text-primary text-uppercase">Đặt phòng</h6>
-                        </a>
+                        </a>';
+                        ?>
                     </div>
                     <!-- <a class="btn btn-primary py-3 px-5 mt-2" href="index.php?act=gt">Explore More</a> -->
                 </div>
