@@ -2,8 +2,8 @@
 <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">Our Rooms</h6>
-                    <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Rooms</span></h1>
+                    <h6 class="section-title text-center text-primary text-uppercase">NHỮNG CĂN PHÒNG</h6>
+                    <h1 class="mb-5">Cùng chúng tôi khám phá <span class="text-primary text-uppercase">Phòng</span></h1>
                 </div>
                 <div class="row g-4">
                 <?php

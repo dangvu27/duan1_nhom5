@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
 
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -33,6 +34,12 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.en-GB.min.js">
     </script>
+
+    <!-- bieudo thong ke -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/morris.js/0.5.1/morris.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/morris.js/0.5.1/raphael-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/morris.js/0.5.1/morris.min.js"></script>
 
     <link rel="stylesheet" href="../css/grid.css">
     <link rel="stylesheet" href="../css/css_das.css">

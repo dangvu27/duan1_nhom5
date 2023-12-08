@@ -71,9 +71,9 @@ ob_start(); // Bắt đầu output buffering
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="index.php" class="nav-item nav-link active">Trang chủ</a>
+                                <a href="index.php" class="nav-item nav-link">Trang chủ</a>
                                 <a href="index.php?act=gt" class="nav-item nav-link">Giới thiệu</a>
-                                <a href="index.php?act=dv" class="nav-item nav-link">Dịch vụ</a>
+                                <!-- <a href="index.php?act=dv" class="nav-item nav-link">Dịch vụ</a> -->
                                 <a href="index.php?act=tksp" class="nav-item nav-link">Phòng</a>
                                 <!-- <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -83,7 +83,7 @@ ob_start(); // Bắt đầu output buffering
                                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                     </div>
                                 </div> -->
-                                <a href="index.php?act=lh" class="nav-item nav-link">Liên hệ</a>
+                                <!-- <a href="index.php?act=lh" class="nav-item nav-link">Liên hệ</a> -->
                             </div>
                             <?php
                                     if (isset($_SESSION['user'])) {
@@ -123,22 +123,54 @@ ob_start(); // Bắt đầu output buffering
                             </div>
                         </div>';
                         break;
-                    case 'dv':
+                    case 'dangnhap':
                         echo '<div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
                             <div class="container-fluid page-header-inner py-5">
                                 <div class="container text-center pb-5">
-                                    <h1 class="display-3 text-white mb-3 animated slideInDown">Dịch vụ</h1>
+                                    <h1 class="display-3 text-white mb-3 animated slideInDown">Đăng Nhập</h1>
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb justify-content-center text-uppercase">
                                             <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
                                             <li class="breadcrumb-item"><a href="#">Trang</a></li>
-                                            <li class="breadcrumb-item text-white active" aria-current="page">Dịch vụ</li>
+                                            <li class="breadcrumb-item text-white active" aria-current="page">Đăng Nhập</li>
                                         </ol>
                                     </nav>
                                 </div>
                             </div>
                         </div>';
                         break;
+                    case 'dangky':
+                        echo '<div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
+                            <div class="container-fluid page-header-inner py-5">
+                                <div class="container text-center pb-5">
+                                    <h1 class="display-3 text-white mb-3 animated slideInDown">Đăng Ký</h1>
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb justify-content-center text-uppercase">
+                                            <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Trang</a></li>
+                                            <li class="breadcrumb-item text-white active" aria-current="page">Đăng Ký</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>';
+                        break; 
+                    case 'quenmk':
+                        echo '<div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
+                            <div class="container-fluid page-header-inner py-5">
+                                <div class="container text-center pb-5">
+                                    <h1 class="display-3 text-white mb-3 animated slideInDown">Quên Mật Khẩu</h1>
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb justify-content-center text-uppercase">
+                                            <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Trang</a></li>
+                                            <li class="breadcrumb-item text-white active" aria-current="page">Quên Mật Khẩu</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>';
+                        break;   
                     case 'tksp':
                         echo '<div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
                             <div class="container-fluid page-header-inner py-5">
@@ -155,38 +187,38 @@ ob_start(); // Bắt đầu output buffering
                             </div>
                         </div>';
                         break;
-                    case 'lh':
+                    case 'booking':
                         echo '<div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
                             <div class="container-fluid page-header-inner py-5">
                                 <div class="container text-center pb-5">
-                                    <h1 class="display-3 text-white mb-3 animated slideInDown">Liên hệ</h1>
+                                    <h1 class="display-3 text-white mb-3 animated slideInDown">Đặt Phòng</h1>
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb justify-content-center text-uppercase">
                                             <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
                                             <li class="breadcrumb-item"><a href="#">Trang</a></li>
-                                            <li class="breadcrumb-item text-white active" aria-current="page">Liên hệ</li>
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>';
-                        break;    
-                    case 'dangky-dangnhap':
-                        echo '<div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
-                            <div class="container-fluid page-header-inner py-5">
-                                <div class="container text-center pb-5">
-                                    <h1 class="display-3 text-white mb-3 animated slideInDown">Đăng Nhập - Đăng Ký</h1>
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb justify-content-center text-uppercase">
-                                            <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
-                                            <li class="breadcrumb-item"><a href="#">Trang</a></li>
-                                            <li class="breadcrumb-item text-white active" aria-current="page">Đăng Nhập - Đăng Ký</li>
+                                            <li class="breadcrumb-item text-white active" aria-current="page">Đặt Phòng</li>
                                         </ol>
                                     </nav>
                                 </div>
                             </div>
                         </div>';
                         break;
+                    case 'datphong':
+                        echo '<div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
+                            <div class="container-fluid page-header-inner py-5">
+                                <div class="container text-center pb-5">
+                                    <h1 class="display-3 text-white mb-3 animated slideInDown">Thanh Toán</h1>
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb justify-content-center text-uppercase">
+                                            <li class="breadcrumb-item"><a href="index.php">Trang chủ</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Trang</a></li>
+                                            <li class="breadcrumb-item text-white active" aria-current="page">Thanh Toán</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>';
+                        break;     
                         
                     default:
                         echo'<div class="container-fluid p-0 mb-5">
@@ -199,7 +231,6 @@ ob_start(); // Bắt đầu output buffering
                                             <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Cuộc sống sang trọng</h6>
                                             <h1 class="display-3 text-white mb-4 animated slideInDown">Khám phá khách sạn sang trọng có thương hiệu</h1>
                                             <a href="index.php?act=tksp" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Những căn phòng</a>
-                                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Đặt phòng</a>
                                         </div>
                                     </div>
                                 </div>
@@ -210,7 +241,6 @@ ob_start(); // Bắt đầu output buffering
                                             <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Cuộc sống sang trọng</h6>
                                             <h1 class="display-3 text-white mb-4 animated slideInDown">Khám phá khách sạn sang trọng có thương hiệu</h1>
                                             <a href="index.php?act=tksp" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Những căn phòng</a>
-                                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Đặt phòng</a>
                                         </div>
                                     </div>
                                 </div>
@@ -240,7 +270,6 @@ ob_start(); // Bắt đầu output buffering
                                             <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Cuộc sống sang trọng</h6>
                                             <h1 class="display-3 text-white mb-4 animated slideInDown">Khám phá khách sạn sang trọng có thương hiệu</h1>
                                             <a href="index.php?act=tksp" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Những căn phòng</a>
-                                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Đặt phòng</a>
                                         </div>
                                     </div>
                                 </div>
@@ -251,7 +280,6 @@ ob_start(); // Bắt đầu output buffering
                                             <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Cuộc sống sang trọng</h6>
                                             <h1 class="display-3 text-white mb-4 animated slideInDown">Khám phá khách sạn sang trọng có thương hiệu</h1>
                                             <a href="index.php?act=tksp" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Những căn phòng</a>
-                                            <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Đặt phòng</a>
                                         </div>
                                     </div>
                                 </div>

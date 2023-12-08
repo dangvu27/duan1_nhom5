@@ -23,7 +23,7 @@
                             Thống kê
                         </div>
                         <div class="box-body" >
-                            <div id="customer-chart"></div>
+                            <div id="area-chart"></div>
                         </div>
                     </div>
                     
