@@ -27,7 +27,7 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="Email" placeholder="Email">
+                                    <input type="text" class="form-control" name="Email" required placeholder="Email">
                                     <label for="name">vui lòng nhập Email</label>
                                 </div>
                             </div>

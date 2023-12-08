@@ -8,25 +8,25 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="userName" placeholder="UserName">
+                                    <input type="text" class="form-control" name="userName" required placeholder="UserName">
                                     <label for="name">UserName</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" name="email" placeholder="Nhập email">
+                                    <input type="email" class="form-control" name="email" required placeholder="Nhập email">
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="SDT" placeholder="SĐT">
+                                    <input type="text" class="form-control" name="SDT" required placeholder="SĐT">
                                     <label>SĐT</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" name="pass" placeholder="Password">
+                                    <input type="password" class="form-control" name="pass" required placeholder="Password">
                                     <label>Password</label>
                                 </div>
                             </div>

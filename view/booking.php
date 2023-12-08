@@ -35,7 +35,7 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" name="ten" class="form-control" id="name" placeholder="Nhập Tên"
+                                    <input type="text" name="ten" class="form-control" id="name" required placeholder="Nhập Tên"
                                         value="<?php 
                                         if ((isset($kh['ten']))&&($kh['ten']!="")) {
                                             echo $kh['ten'];
@@ -47,21 +47,21 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" name="sdt" class="form-control" placeholder="Nhập SĐT"
+                                    <input type="text" name="sdt" class="form-control" required placeholder="Nhập SĐT"
                                         value="<?php echo $_SESSION['user']['SDT']?>">
                                     <label>Nhập SĐT</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="email" name="email" class="form-control" id="email"
+                                    <input type="email" name="email" required class="form-control" id="email"
                                         placeholder="Nhập Email" value="<?php echo $_SESSION['user']['email']?>">
                                     <label for="email">Email của bạn</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="date" id="date3" data-target-input="nearest">
-                                    <input type="text" name="ngayden" class="form-control datetimepicker-input"
+                                    <input type="text" name="ngayden" required class="form-control datetimepicker-input"
                                         placeholder="Check In" data-target="#date3" data-toggle="datetimepicker" value="<?php 
                                         if (isset($_SESSION['checkin'])) {
                                             echo $_SESSION['checkin'];
@@ -70,7 +70,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="date" id="date4" data-target-input="nearest">
-                                    <input type="text" name="ngaydi" class="form-control datetimepicker-input"
+                                    <input type="text" name="ngaydi" required class="form-control datetimepicker-input"
                                         placeholder="Check Out" data-target="#date4" data-toggle="datetimepicker" value="<?php 
                                         if (isset($_SESSION['checkout'])) {
                                             echo $_SESSION['checkout'];

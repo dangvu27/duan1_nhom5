@@ -50,7 +50,7 @@
                 <form action="index.php?act=binhluan" method="post">
                     <input type="hidden" name="id_phong" value="<?php echo $id_phong?>">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Comment" name="noi_dung">
+                        <input type="text" class="form-control" required placeholder="Comment" name="noi_dung">
                         <input type="submit" value="Bình Luận" class="btn btn-outline-secondary" name="guibl">
                     </div>
                 </form>
